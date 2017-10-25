@@ -1,11 +1,3 @@
-# Angular accordian
-
-An npm Package Angualr 2 accordian.
-
-## Basic Usage
-
-This example has four accordion's
-```html
 <ng-accordian [closeOthers]="true">
   <ng-accordian-group heading="heading one">
     content one
@@ -28,4 +20,3 @@ This example has four accordion's
     content four
   </ng-accordian-group>
 </ng-accordian>
-```
