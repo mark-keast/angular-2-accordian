@@ -14,13 +14,14 @@ import { DOCUMENT } from '@angular/platform-browser';
     selector:'ng-accordian-group',
     template:`
         <div (onresize)="reSize()">
-        <div tabIndex="0" #headingArea (click)="toggle()"><h3>{{heading}}</h3></div>
+        <div class="_accordian_heading" #headingArea (click)="toggle()"><h3>{{heading}}</h3></div>
         <div class="content-body" #contentArea>
             <!--div *ngIf="isOpened"-->
-            <div #contentOuterContainer>
+            <!--div #contentOuterContainer-->
                 <div #content>
-                <ng-content></ng-content></div>
-            </div>
+                <ng-content></ng-content>
+                </div>
+            <!--/div-->
         </div>
         </div>
     `
@@ -29,7 +30,7 @@ export class AccordianGroupComponent implements AfterViewInit {
 @Input('heading') heading:string;
 @ViewChild('headingArea') headingArea:ElementRef;
 @ViewChild('contentArea') contentArea:ElementRef;
-@ViewChild('contentOuterContainer') contentOuterContainer:ElementRef;
+// @ViewChild('contentOuterContainer') contentOuterContainer:ElementRef;
 @ViewChild('content') content:ElementRef;
 
 

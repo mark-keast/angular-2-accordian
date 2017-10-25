@@ -4,8 +4,10 @@ import { Component, Input, forwardRef, ContentChildren, QueryList, AfterContentI
     moduleId:module.id,
     selector:'ng-accordian',
     template:`
-    AccordianComponent
-    <ng-content></ng-content>`
+    <div class="_accordian">
+        <ng-content></ng-content>
+    </div>`,
+    styleUrls:['_accordian.css']
 })
 export class AccordianComponent implements AfterContentInit{
 @Input() closeOthers:boolean = false;
