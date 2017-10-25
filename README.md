@@ -7,25 +7,22 @@ An npm Package Angualr 2 accordian.
 This example has four accordion's
 ```html
 <ng-accordian [closeOthers]="true">
-  <ng-accordian-group heading="heading one">
-    content one
+  <ng-accordian-group heading="About us">
+    We are started stradding in...........
   </ng-accordian-group>
-  <ng-accordian-group heading="heading two">
-    <p>Ready to go, statically typed build system using Gulp for working with TypeScript.
-    Production and development builds.
-    Sample unit tests with Jasmine and Karma including code coverage via Istanbul.
-    End-to-end tests with Protractor.</p>
-
-    <p>Ready to go, statically typed build system using Gulp for working with TypeScript.
-    Production and development builds.
-    Sample unit tests with Jasmine and Karma including code coverage via Istanbul.
-    End-to-end tests with Protractor.</p>    
+  <ng-accordian-group heading="Contact Details">
+    <ul>
+    <li>85 Accasia Road</li>
+    <li>Shirehampton</li>
+    <li>London</li>
+    </ul>    
   </ng-accordian-group>
-  <ng-accordian-group heading="heading three">
-    content three
+  <ng-accordian-group heading="Refund Policy">
+    <p>All refunds are covered up till.....</p>
   </ng-accordian-group>
-  <ng-accordian-group heading="heading four">
-    content four
+  <ng-accordian-group heading="Delivery">
+    Delivery times.
+    ...............
   </ng-accordian-group>
 </ng-accordian>
 ```
@@ -73,7 +70,7 @@ export class SharedModule {
 
 ## Make sure component has the Shared module.
 
-add to the Shared module.
+Add to the Shared module to page requiring the accordian (eg AboutComponent)
 ```html
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -89,10 +86,11 @@ export class AboutModule { }
 
 ```
 
-## Html rendering of accordian.
+## Html rendering of accordian on About page.
 
-Add html to page.
+Html to page.
 ```html
+<h1>About us</h1>
 <ng-accordian [closeOthers]="true">
   <ng-accordian-group heading="Heading one">
     Content one
