@@ -56,13 +56,17 @@ public styleItem: HTMLStyleElement;
 
 constructor(
     private renderer: Renderer,
+    private renderer2: Renderer2,
     private accordian: AccordianComponent,
     @Inject(DOCUMENT) private document:any) {
-		this.styleItem = this.document.createElement('style');
+
+        this.styleItem = this.document.createElement('style');
     }
 
  @HostListener('window:resize', ['$event'])
     onResize() {
+        // remove style tag and update then add again.
+        // this.contentArea.nativeElement.children[1].remove();
         this.addStyle();
  }
 
@@ -86,6 +90,7 @@ constructor(
     //     }
     //  }
 
+    //  const styleItem = this.document.createElement('style');
         let itemStyle = `
          .accordian_content-body{
             height:0px;            
@@ -97,10 +102,11 @@ constructor(
             height:${this.content.nativeElement.offsetHeight}px !important; 
             transition:height 0.3s ease-in; 
         }`;
-        styleItem.innerHTML = itemStyle;
+        this.styleItem.innerHTML = itemStyle;
+        // this.contentArea.nativeElement.appendChild(styleItem);
  }
     public ngAfterViewInit() {
-        this.contentArea.nativeElement.appendChild(styleItem);
+        this.contentArea.nativeElement.appendChild(this.styleItem);
         this.classExpand = this.contentArea.nativeElement.getAttribute('_mk-accordian');
         this.addStyle();
 
@@ -119,6 +125,9 @@ constructor(
           if (this.isOpened) {
             this.contentArea.nativeElement.className =
                 this.contentArea.nativeElement.className + ` expanded-content-body-${this.classExpand}`;
+
+                // this.renderer2.setStyle(this.contentArea.nativeElement,'border','solid 1px red');
+                    // (this.contentArea.nativeElement,'border-left,'solid 1px red');
           }
 
     }
