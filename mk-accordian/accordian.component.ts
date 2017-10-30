@@ -1,13 +1,12 @@
 import { AccordianGroupComponent } from './accordian-group.component';
-import { Component, Input, forwardRef, ContentChildren, QueryList, AfterContentInit, Renderer2 } from '@angular/core';
+import { Component, Input, forwardRef, ContentChildren, ViewEncapsulation, QueryList, AfterContentInit, Renderer2 } from '@angular/core';
 @Component({
     moduleId:module.id,
     selector:'ng-accordian',
     template:`
-    <div class="_accordian">
+    <div class="accordian">
         <ng-content></ng-content>
     </div>`,
-    styleUrls:['_accordian.css']
 })
 export class AccordianComponent implements AfterContentInit{
 @Input() closeOthers:boolean = false;
@@ -28,7 +27,7 @@ export class AccordianComponent implements AfterContentInit{
         console.log(this.groups.toArray());
         this.groups.forEach(i => {
             i.isOpened = false;
-            i.contentArea.nativeElement.className = 'content-body';
+            i.contentArea.nativeElement.className = 'accordian_content-body';
         });
     }
 }
