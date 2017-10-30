@@ -52,15 +52,17 @@ export class AccordianGroupComponent implements AfterViewInit {
 
 public isOpened: boolean = false;
 public classExpand: string;
+public styleItem: HTMLStyleElement;
+
 constructor(
     private renderer: Renderer,
     private accordian: AccordianComponent,
-    @Inject(DOCUMENT) private document:any) {}
+    @Inject(DOCUMENT) private document:any) {
+		this.styleItem = this.document.createElement('style');
+    }
 
  @HostListener('window:resize', ['$event'])
     onResize() {
-        // remove style tag and update then add again.
-        this.contentArea.nativeElement.children[1].remove();
         this.addStyle();
  }
 
@@ -84,7 +86,6 @@ constructor(
     //     }
     //  }
 
-     const styleItem = this.document.createElement('style');
         let itemStyle = `
          .accordian_content-body{
             height:0px;            
@@ -97,9 +98,9 @@ constructor(
             transition:height 0.3s ease-in; 
         }`;
         styleItem.innerHTML = itemStyle;
-        this.contentArea.nativeElement.appendChild(styleItem);
  }
     public ngAfterViewInit() {
+        this.contentArea.nativeElement.appendChild(styleItem);
         this.classExpand = this.contentArea.nativeElement.getAttribute('_mk-accordian');
         this.addStyle();
 
