@@ -1,5 +1,3 @@
-import { StyleColourComponent } from './../../../styles/colours/style-colour.component';
-import { FileLikeObject } from './../../fileUpload/file-like-object.class';
 import { AccordianComponent } from './accordian.component';
 import { Component,
         Input,

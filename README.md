@@ -108,3 +108,16 @@ Html to page.
 
 ```
 
+## Module not found 
+If after your install, you are getting module not found, you will need to update the project.config.ts file
+```html
+      {
+        name: 'angular-2-accordian',
+        path: 'node_modules/angular-2-accordian',
+        packageMeta: {
+          main: 'accordian.module.js',
+          defaultExtension: 'js'
+        }
+      },
+```
+
